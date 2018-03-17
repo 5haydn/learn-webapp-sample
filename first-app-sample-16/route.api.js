@@ -9,7 +9,7 @@ router.get('/users', function(req, res, next) {
 
 /* GET posts lists */
 router.get('/posts', function(req, res, next) {
-  PostModel.find({}, {}, function(err, posts) {
+  PostModel.find({},{}).sort('-_id').exec( function (err, posts) {
     if (err) {
       next(err);
     } else {
